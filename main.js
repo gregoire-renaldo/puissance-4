@@ -1,10 +1,30 @@
 const tour = document.querySelector("#tour");
 const alert = document.querySelector(".alert");
-var joueurEnCours = 1;
-var finJeu = false;
+const messageJ1 = document.querySelector("#j1");
+const messageJ2 = document.querySelector("#j2");
+let joueurEnCours = 1;
+let finJeu = false;
 
-jeu.initialisation();
-jeu.afficherPuissance4();
+let pointJ1 = 0;
+let pointJ2 = 0;
+
+let isIAON = false;
+
+
+
+initialisationTableau();
+function startIA() {
+  isIAON = !isIAON
+}
+
+function jouer(colonne) {
+  jouerCase(colonne);
+  if(isIAON) {
+    colonneIA = IA.choixColonne();
+    jouerCase(colonneIA)
+  }
+
+}
 
 // function intro() {
 //   let txt =
@@ -27,9 +47,9 @@ jeu.afficherPuissance4();
  * @param {Number} joueur
  * @returns
  */
-function jouer(colonne) {
+function jouerCase(colonne) {
   if (!finJeu) {
-    var ligneVide = jeu.retournerLigneCaseVideColonne(colonne);
+    let ligneVide = jeu.retournerLigneCaseVideColonne(colonne);
     jeu.jouerCase(joueurEnCours, ligneVide, colonne);
     jeu.afficherPuissance4();
     if (jeu.verificationFinduJeu(joueurEnCours)) {
@@ -46,8 +66,34 @@ function jouer(colonne) {
   }
 }
 
+function initialisationTableau() {
+  finJeu = false;
+  joueurEnCours = 1;
+  alert.classList.add("d-none");
+  let contentJ1 =
+    "<img src='./images/J1.png' class='bg-danger rounded-circle' /><br>";
+  contentJ1 += pointJ1;
+  messageJ1.innerHTML = contentJ1;
+  let contentJ2 =
+    "<img src='./images/J2.png' class='bg-info rounded-circle' /><br>";
+  contentJ2 += pointJ2;
+  messageJ2.innerHTML = contentJ2;
+
+  jeu.initialisation();
+  jeu.afficherPuissance4();
+}
+
 function gererFinJeu() {
-  finJeu = true
-  alert.innerHTML = "Fin du jeu"
-  alert.classList.remove("d-none")
+  finJeu = true;
+
+  let contentAlert = "Fin du jeu, le gagnant est " + joueurEnCours + "<br />";
+  contentAlert +=
+    '<button type="button" class="btn btn-primary" onClick = initialisationTableau() >Recommencer</button>';
+  alert.innerHTML = contentAlert;
+  alert.classList.remove("d-none");
+  if (joueurEnCours === 1) {
+    pointJ1++;
+  } else {
+    pointJ2++;
+  }
 }
