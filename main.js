@@ -1,4 +1,5 @@
 const tour = document.querySelector("#tour");
+const alert = document.querySelector(".alert");
 var joueurEnCours = 1;
 var finJeu = false;
 
@@ -47,4 +48,6 @@ function jouer(colonne) {
 
 function gererFinJeu() {
   finJeu = true
+  alert.innerHTML = "Fin du jeu"
+  alert.classList.remove("d-none")
 }
