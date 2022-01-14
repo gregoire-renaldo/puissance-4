@@ -11,18 +11,18 @@ let pointJ2 = 0;
 let isIAON = false;
 
 initialisationTableau();
-placeForTest(0);
-placeForTest(6);
-placeForTest(2);
-placeForTest(4);
-placeForTest(3);
-placeForTest(3);
-placeForTest(4);
-placeForTest(3);
-placeForTest(4);
-placeForTest(4);
-placeForTest(5);
-placeForTest(2);
+// placeForTest(0);
+// placeForTest(6);
+// placeForTest(2);
+// placeForTest(4);
+// placeForTest(3);
+// placeForTest(3);
+// placeForTest(4);
+// placeForTest(3);
+// placeForTest(4);
+// placeForTest(4);
+// placeForTest(5);
+// placeForTest(2);
 function startIA() {
   isIAON = !isIAON;
 }
