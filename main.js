@@ -10,20 +10,33 @@ let pointJ2 = 0;
 
 let isIAON = false;
 
-
-
 initialisationTableau();
+placeForTest(0);
+placeForTest(6);
+placeForTest(2);
+placeForTest(4);
+placeForTest(3);
+placeForTest(3);
+placeForTest(4);
+placeForTest(3);
+placeForTest(4);
+placeForTest(4);
+placeForTest(5);
+placeForTest(2);
 function startIA() {
-  isIAON = !isIAON
+  isIAON = !isIAON;
 }
 
 function jouer(colonne) {
   jouerCase(colonne);
-  if(isIAON) {
+  if (isIAON) {
     colonneIA = IA.choixColonne();
-    jouerCase(colonneIA)
+    jouerCase(colonneIA);
   }
+}
 
+function placeForTest(colonne) {
+  jouer(colonne);
 }
 
 // function intro() {

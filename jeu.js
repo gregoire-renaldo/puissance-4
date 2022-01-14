@@ -20,7 +20,6 @@ let jeu = {
    */
   afficherPuissance4: function () {
     const jeu = document.querySelector("#jeu");
-    console.log(jeu);
     //refresh la grille
     jeu.innerHTML = "";
     var content = "<table>";
@@ -42,19 +41,19 @@ let jeu = {
     }
     content += "<tr>";
     content +=
-      '<td><button type="button" class="btn btn-secondary p-2" onClick=jouer(1)>Colonne 1</button></td>';
+      '<td><button type="button" class="btn btn-secondary p-2" onClick=jouer(0)>Colonne 1</button></td>';
     content +=
-      '<td><button type="button" class="btn btn-secondary p-2" onClick="jouer(2)">Colonne 2</button></td>';
+      '<td><button type="button" class="btn btn-secondary p-2" onClick="jouer(1)">Colonne 2</button></td>';
     content +=
-      '<td><button type="button" class="btn btn-secondary p-2" onClick="jouer(3)">Colonne 3</button></td>';
+      '<td><button type="button" class="btn btn-secondary p-2" onClick="jouer(2)">Colonne 3</button></td>';
     content +=
-      '<td><button type="button" class="btn btn-secondary p-2" onClick="jouer(4)">Colonne 4</button> </td>';
+      '<td><button type="button" class="btn btn-secondary p-2" onClick="jouer(3)">Colonne 4</button> </td>';
     content +=
-      '<td><button type="button" class="btn btn-secondary p-2" onClick="jouer(5)">Colonne 5</button> </td>';
+      '<td><button type="button" class="btn btn-secondary p-2" onClick="jouer(4)">Colonne 5</button> </td>';
     content +=
-      '<td><button type="button" class="btn btn-secondary p-2" onClick="jouer(6)">Colonne 6</button> </td>';
+      '<td><button type="button" class="btn btn-secondary p-2" onClick="jouer(5)">Colonne 6</button> </td>';
     content +=
-      '<td><button type="button" class="btn btn-secondary p-2" onClick="jouer(7)">Colonne 7</button> </td>';
+      '<td><button type="button" class="btn btn-secondary p-2" onClick="jouer(6)">Colonne 7</button> </td>';
     content += "</tr>";
     content += "</table>";
     jeu.innerHTML = content;
@@ -76,7 +75,7 @@ let jeu = {
   },
 
   jouerCase: function (joueur, ligneVide, colonne) {
-    this.puissance4[ligneVide][colonne - 1] = joueur;
+    this.puissance4[ligneVide][colonne] = joueur;
   },
 
   /**
@@ -100,7 +99,7 @@ let jeu = {
    */
   verifCaseVide: function (ligne, colonne) {
     // boolean renvoyé
-    return this.puissance4[ligne][colonne - 1] === 0;
+    return this.puissance4[ligne][colonne] === 0;
   },
 
   /**
